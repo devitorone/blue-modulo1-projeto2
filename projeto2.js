@@ -22,38 +22,54 @@ do {
     var randomChoice = choices[Math.floor(Math.random() * choices.length)];
 
     do {
-      var userChoice = +prompt(`Pedra [1] , Papel [2] ou Tesoura [3]? =>`);
-    } while (userChoice != 1 && userChoice != 2 && userChoice != 3);
+      var userChoice = prompt(`1.Pedra  , 2.Papel  ou 3.Tesoura ? => `);
+      var choiceList = ['1','2','3','Pedra','Papel', 'Tesoura','tesoura','papel','pedra'];
+      if (choiceList.includes(userChoice) == false){
+        console.log(`Erro: você deve escolher entre ${choiceList}`)
+      }
+    } while (choiceList.includes(userChoice) == false);
 
     console.log(`
-        User:${choices[userChoice - 1]} contra  pc:${randomChoice}
+        Você escolheu "${userChoice}" contra "${randomChoice}"
         `);
     switch (randomChoice) {
       case "Pedra":
-        switch (choices[userChoice - 1]) {
+        switch (userChoice) {
           case "Papel":
+          case '2':
+          case 'papel':
             userWins++;
             break;
           case "Tesoura":
+          case '3':
+          case 'tesoura':
             pcWins++;
             break;
         }
       case "Papel":
-        switch (choices[userChoice - 1]) {
+        switch (userChoice) {
           case "Tesoura":
+          case'3':
+          case 'tesoura':
             userWins++;
             break;
           case "Pedra":
+          case '1':
+          case 'pedra':
             pcWins++;
             break;
         }
 
       case "Tesoura":
-        switch (choices[userChoice - 1]) {
+        switch (userChoice) {
           case "Pedra":
+          case'1':
+          case'pedra':
             userWins++;
             break;
           case "Papel":
+          case'2':
+          case'papel':
             pcWins++;
             break;
         }
@@ -63,7 +79,8 @@ do {
   console.log("Vitórias do PC =>", pcWins, "Vitórias do usuário =>", userWins);
 
   if (userWins > pcWins) {
-    console.log(`Parabéns. Você é um mestre do Jokenpo
+    console.log(`
+    Parabéns. Você é um mestre do Jokenpo
     `);
   } else {
     console.log(
