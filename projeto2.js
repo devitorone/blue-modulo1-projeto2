@@ -61,26 +61,23 @@ do {
         Você escolheu "${userChoice}" contra "${randomChoice}"
         `);
 
-    if (randomChoice == 'Pedra'){
-
-      if (userChoice == 'Papel'){
-          userWins++;
-      } else if(userChoice == 'Tesoura'){
-            pcWins++;
+    if (randomChoice == "Pedra") {
+      if (userChoice == "Papel") {
+        userWins++;
+      } else if (userChoice == "Tesoura") {
+        pcWins++;
       }
-    }else if (randomChoice=='Papel'){
-
-        if (userChoice == 'Tesoura'){
-          userWins++;
-      } else if(userChoice == 'Pedra'){
-            pcWins++;
+    } else if (randomChoice == "Papel") {
+      if (userChoice == "Tesoura") {
+        userWins++;
+      } else if (userChoice == "Pedra") {
+        pcWins++;
       }
-    }else if (randomChoice=='Tesoura'){
-      
-        if (userChoice == 'Pedra'){
-          userWins++;
-      } else if(userChoice == 'Papel'){
-            pcWins++;
+    } else if (randomChoice == "Tesoura") {
+      if (userChoice == "Pedra") {
+        userWins++;
+      } else if (userChoice == "Papel") {
+        pcWins++;
       }
     }
   }
