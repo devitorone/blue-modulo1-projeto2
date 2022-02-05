@@ -23,56 +23,65 @@ do {
 
     do {
       var userChoice = prompt(`1.Pedra  , 2.Papel  ou 3.Tesoura ? => `);
-      var choiceList = ['1','2','3','Pedra','Papel', 'Tesoura','tesoura','papel','pedra'];
-      if (choiceList.includes(userChoice) == false){
-        console.log(`Erro: você deve escolher entre ${choiceList}`)
+      var choiceList = [
+        "1",
+        "2",
+        "3",
+        "Pedra",
+        "Papel",
+        "Tesoura",
+        "tesoura",
+        "papel",
+        "pedra",
+      ];
+      if (choiceList.includes(userChoice) == false) {
+        console.log(`Erro: você deve escolher entre ${choiceList}`);
       }
     } while (choiceList.includes(userChoice) == false);
+
+    switch (userChoice) {
+      case "1":
+      case "Pedra":
+      case "pedra":
+        var userChoice = "Pedra";
+        break;
+      case "2":
+      case "Papel":
+      case "papel":
+        userChoice = "Papel";
+        break;
+      case "3":
+      case "Tesoura":
+      case "tesoura":
+        userChoice = "Tesoura";
+        break;
+    }
 
     console.log(`
         Você escolheu "${userChoice}" contra "${randomChoice}"
         `);
-    switch (randomChoice) {
-      case "Pedra":
-        switch (userChoice) {
-          case "Papel":
-          case '2':
-          case 'papel':
-            userWins++;
-            break;
-          case "Tesoura":
-          case '3':
-          case 'tesoura':
-            pcWins++;
-            break;
-        }
-      case "Papel":
-        switch (userChoice) {
-          case "Tesoura":
-          case'3':
-          case 'tesoura':
-            userWins++;
-            break;
-          case "Pedra":
-          case '1':
-          case 'pedra':
-            pcWins++;
-            break;
-        }
 
-      case "Tesoura":
-        switch (userChoice) {
-          case "Pedra":
-          case'1':
-          case'pedra':
-            userWins++;
-            break;
-          case "Papel":
-          case'2':
-          case'papel':
+    if (randomChoice == 'Pedra'){
+
+      if (userChoice == 'Papel'){
+          userWins++;
+      } else if(userChoice == 'Tesoura'){
             pcWins++;
-            break;
-        }
+      }
+    }else if (randomChoice=='Papel'){
+
+        if (userChoice == 'Tesoura'){
+          userWins++;
+      } else if(userChoice == 'Pedra'){
+            pcWins++;
+      }
+    }else if (randomChoice=='Tesoura'){
+      
+        if (userChoice == 'Pedra'){
+          userWins++;
+      } else if(userChoice == 'Papel'){
+            pcWins++;
+      }
     }
   }
 
